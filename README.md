@@ -27,6 +27,7 @@ Raymond
 - 密碼驗證(前端)，需要討論一下，可能會有安全性的問題
 - 最底下 footer 已經置底，但是無法符合置視窗大小
 - login.php & member.php 已新建但未有進度，目前 member.php 已有雛型，但是 seesion 未寫入無法使用
+- 信箱即時驗證 Chrome 無法使用
 
 Jimmy
 ---
