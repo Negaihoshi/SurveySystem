@@ -6,8 +6,8 @@
 	echo "connect success<br>";
 	// 選擇資料庫
 	mysql_select_db($DB_NAME, $link) or die("select database error");
-	echo "select database success";
+	echo "select database success<br>";
 	mysql_query("SET NAMES utf8");
 	//關閉資料庫連線
-	mysql_close ($link);
+	//mysql_close ($link);
 ?>

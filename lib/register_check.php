@@ -5,26 +5,37 @@
 //連接資料庫
 //只要此頁面上有用到連接MySQL就要include它
 include("connect_db.php");
+
+$username = $_POST['username'];
 $email = $_POST['email'];
 $password = $_POST['password'];
+$repeatPassword =$_POST['repeatPassword'];
 
-//搜尋資料庫資料
-$sql = "SELECT * FROM member_table where username = '$email'";
-$result = mysql_query($sql);
-$row = @mysql_fetch_row($result);
 
-//判斷帳號與密碼是否為空白
-//以及MySQL資料庫裡是否有這個會員
-if($email != null && $password != null && $row[1] == $email && $row[2] == $password)
-{
-        //將帳號寫入session，方便驗證使用者身份
-        $_SESSION['username'] = $email;
-        echo '登入成功!';
-        echo '<meta http-equiv=REFRESH CONTENT=1;url=member.php>';
+//判斷帳號密碼是否為空值
+//確認密碼輸入的正確性
+if($username != null && $email != null && $password != null && $repeatPassword != null && $password == $repeatPassword){
+
+        //新增資料進資料庫語法
+        $sql = "insert into member (username, email, password) values ('$username', '$email', '$password')";
+        if(mysql_query($sql))
+        {
+                echo '新增成功!';
+                echo '<meta http-equiv=REFRESH CONTENT=2;url=member.php>';
+        }
+        else
+        {
+                echo '新增失敗!';
+                echo '<meta http-equiv=REFRESH CONTENT=2;url=../index.html>';
+        }
 }
 else
 {
-        echo '登入失敗!';
-        echo '<meta http-equiv=REFRESH CONTENT=1;url=index.php>';
+        //echo '您無權限觀看此頁面!';
+        if ($password == $repeatPassword) {
+        	echo "驗證密碼失敗，密碼不相同";
+        }
+        echo '<meta http-equiv=REFRESH CONTENT=2;url=register.php>';
 }
 ?>
+
