@@ -21,7 +21,7 @@
 <body>
     <nav class="uk-navbar">
         <ul class="uk-navbar-nav">
-            <li class="uk-active"><a href="index.html">問卷系統</a></li>
+            <li class="uk-active"><a href="../index.html">問卷系統</a></li>
             <li><a href="">測試1</a></li>
             <li class="uk-parent"><a href="">測試2</a></li>
         </ul>

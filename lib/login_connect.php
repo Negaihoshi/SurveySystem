@@ -9,7 +9,7 @@
 	echo "$password<br>";
 	$sql = "SELECT * FROM member where email = '$email'";
 	$result = mysql_query($sql);
-	$row = @mysql_fetch_row($result);
+	$row = mysql_fetch_row($result);
 	
 	echo "$row[0] . $row[1] . $row[2] . $row[3] . $row[4]";
 
@@ -23,6 +23,6 @@
 	}
 	else{
 		echo '登入失敗!';
-		echo '<meta http-equiv=REFRESH CONTENT=1;url=../index.html>';
+		echo '<meta http-equiv=REFRESH CONTENT=1;url=login.html>';
 	}
 ?>
