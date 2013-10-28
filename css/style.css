@@ -7,6 +7,6 @@
 	width:100%;
 	bottom:0; /* stick to bottom */
 	border-top:3px none #333;
-	height:20px;
+	height:auto;
 	text-align:center;
 }
