@@ -20,7 +20,8 @@ if($username != null && $email != null && $password != null && $repeatPassword !
         $sql = "insert into member (username, email, password) values ('$username', '$email', '$password')";
         if(mysql_query($sql))
         {
-                echo '新增成功!';
+                //echo '新增成功!';
+                $_SESSION['email'] = $email;
                 echo '<meta http-equiv=REFRESH CONTENT=2;url=member.php>';
         }
         else
