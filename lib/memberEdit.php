@@ -5,6 +5,12 @@
     if($_SESSION['email'] == null){
         echo "您無權限瀏覽此頁面";
         echo "<meta http-equiv=REFRESH CONTENT=2;url=../index.php>";
+    }else {
+        include("connect_db.php");
+        $username = $_SESSION['username'];
+        $sql = "SELECT * FROM member where username='$username'";
+        $result = mysql_query($sql);
+        $row = mysql_fetch_row($result);
     }
 ?>
 <!doctype html>
@@ -46,27 +52,27 @@
 
 
     <div id="container">
-        
+        <?echo "030";?>
         <div clss="uk-grid">
         <div class="uk-width-2-5 uk-container-center">
-        <form class="uk-form uk-form-horizontal" name="form" method="post" action="register_check.php">
+        <form class="uk-form uk-form-horizontal" name="editForm" method="post" action="update.php">
             <fieldset>
                 <legend>會員資料</legend>
                 <div class="uk-form-row">
                     <label class="uk-form-label" for="username">使用者名稱</label>
-                    <input type="text" placeholder="Enter username" class="uk-form-width-medium" id="username" name="username" required autofucus>
+                    <input type="text" placeholder="<?echo "$row[1]";?>" class="uk-form-width-medium" id="username" name="username" required autofucus>
                 </div>
                 <div class="uk-form-row">
                     <label class="uk-form-label" for="email">電子信箱</label>
-                    <input type="email" placeholder="Enter email" class="uk-form-width-medium" id="email" name="email" required>
+                    <input type="email" placeholder="<?echo "$row[2]";?>" class="uk-form-width-medium" id="email" name="email" required>
                 </div>
 
             </fieldset>
             <fieldset>
                 <legend>修改密碼</legend>
                 <div class="uk-form-row">
-                    <label class="uk-form-label" for="password">目前的密碼</label>
-                    <input type="password" placeholder="Enter Password" class="uk-form-width-medium" id="password" name="password" required>
+                    <label class="uk-form-label" for="currentPassword">目前的密碼</label>
+                    <input type="password" placeholder="<?echo "$row[3]";?>" class="uk-form-width-medium" id="currentPassword" name="currentPassword" required>
                 </div>
                 <div class="uk-form-row">
                     <label class="uk-form-label" for="password">使用者密碼</label>
@@ -78,8 +84,8 @@
                 </div> 
             </fieldset>
             <button class="uk-button" type="submit">修改</button>
-
         </form>
+
         </div>
     </div>
 

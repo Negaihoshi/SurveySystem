@@ -23,7 +23,7 @@
 
     <link href="../css/uikit.gradient.min.css" rel="stylesheet">
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0rc1/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0rc3/angular.min.js"></script>
     <link href="../css/style.css" rel="stylesheet" type="text/css">
 </head>
 <body>
@@ -67,8 +67,8 @@
                 $result = mysql_query($sql);
                 while( $row = mysql_fetch_row($result))
                 {
-                         echo "$row[0] - $row[1], " . 
-                         "電話：$row[3], 地址：$row[4] <br>";
+                         echo "ID：$row[0]<br> 使用者名稱：$row[1]<br>" . 
+                         "密碼：$row[3] <br> 註冊時間：$row[4] <br>";
                          break;
                 }
         }
