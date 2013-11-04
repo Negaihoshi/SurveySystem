@@ -67,9 +67,8 @@
                 $result = mysql_query($sql);
                 while( $row = mysql_fetch_row($result))
                 {
-                         echo "ID：$row[0]<br> 使用者名稱：$row[1]<br>" . 
-                         "密碼：$row[3] <br> 註冊時間：$row[4] <br>";
-                         break;
+                    echo "ID：$row[0]<br> 使用者名稱：$row[1]<br>" . 
+                    "密碼：$row[3] <br> 註冊時間：$row[4] <br>";
                 }
         }
         else
