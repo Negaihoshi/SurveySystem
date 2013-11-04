@@ -7,8 +7,8 @@
         echo "<meta http-equiv=REFRESH CONTENT=2;url=../index.php>";
     }else {
         include("connect_db.php");
-        $username = $_SESSION['username'];
-        $sql = "SELECT * FROM member where username='$username'";
+        $email = $_SESSION['email'];
+        $sql = "SELECT * FROM member where email = '$email'";
         $result = mysql_query($sql);
         $row = mysql_fetch_row($result);
     }
@@ -43,7 +43,7 @@
         <div class="uk-navbar-flip">
             <ul class="uk-navbar-nav">
 
-                <li class="uk-active"><a href="member.php"><?$username = $_SESSION['username'];echo "$username";?></a></li>
+                <li class="uk-active"><a href="member.php"><?$loginName = $_SESSION['loginName'];echo "$loginName";?></a></li>
                 <li><a href="memberEdit.php">修改會員資料</a></li>
                 <li><a href="logout.php">登出</a></li>
             </ul>
@@ -64,7 +64,7 @@
                 </div>
                 <div class="uk-form-row">
                     <label class="uk-form-label" for="email">電子信箱</label>
-                    <input type="email" placeholder="<?echo "$row[2]";?>" class="uk-form-width-medium" id="email" name="email" required>
+                    <input type="email" placeholder="<?echo "$row[2]";?>" class="uk-form-width-medium" id="email" name="email" disabled>
                 </div>
 
             </fieldset>
@@ -75,11 +75,11 @@
                     <input type="password" placeholder="<?echo "$row[3]";?>" class="uk-form-width-medium" id="currentPassword" name="currentPassword" required>
                 </div>
                 <div class="uk-form-row">
-                    <label class="uk-form-label" for="password">使用者密碼</label>
+                    <label class="uk-form-label" for="password">新密碼</label>
                     <input type="password" placeholder="Enter Password" class="uk-form-width-medium" id="password" name="password" required>
                 </div>
                 <div class="uk-form-row">
-                    <label class="uk-form-label" for="repeatPassword">再次輸入密碼</label>
+                    <label class="uk-form-label" for="repeatPassword">再次輸入新密碼</label>
                     <input type="password" placeholder="Enter Password" class="uk-form-width-medium" id="repeatPassword" name="repeatPassword" required>
                 </div> 
             </fieldset>

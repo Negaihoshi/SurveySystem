@@ -18,7 +18,7 @@
 	if($email != null && $password != null  && $row[3] == $password && ($row[2] == $email||$row[1] == $username)){
 		//將帳號寫入session，方便驗證使用者身份
 		$_SESSION['email'] = $email;
-		$_SESSION['username'] = $row[1];
+		$_SESSION['loginName'] = $row[1];
 		echo '登入成功!';
 		echo '<meta http-equiv=REFRESH CONTENT=1;url=member.php>';
 	}

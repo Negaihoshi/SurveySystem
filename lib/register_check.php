@@ -22,6 +22,7 @@ if($username != null && $email != null && $password != null && $repeatPassword !
         {
                 //echo '新增成功!';
                 $_SESSION['email'] = $email;
+                $_SESSION['loginName'] = $username;
                 echo '<meta http-equiv=REFRESH CONTENT=2;url=member.php>';
         }
         else
