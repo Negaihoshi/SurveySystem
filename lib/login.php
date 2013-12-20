@@ -4,8 +4,7 @@
 <head>
     <meta charset="UTF-8">
 
-    <title>SurveySystem</title>
-    <link rel="stylesheet" href="">
+    <title>CustomerManagement</title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
@@ -21,9 +20,7 @@
 <body>
     <nav class="uk-navbar">
         <ul class="uk-navbar-nav">
-            <li class="uk-active"><a href="../index.html">問卷系統</a></li>
-            <li><a href="">測試1</a></li>
-            <li class="uk-parent"><a href="">測試2</a></li>
+            <li class="uk-active"><a href="../index.php">客戶管理系統</a></li>
         </ul>
 
         <div class="uk-navbar-flip">
@@ -34,32 +31,40 @@
         </div>
     </nav>
 
-
-    <div clss="uk-grid">
-        <div class="uk-width-2-5 uk-container-center">
-        <form class="uk-form uk-form-horizontal" name="form" method="post" action="login_connect.php">
-            <fieldset>
-                <legend>使用者登入</legend>
-                <div class="uk-form-row">
-                    <label class="uk-form-label" for="email">電子信箱或使用者名稱</label>
-                    <input type="email" placeholder="Enter Email or User Name" class="uk-form-width-medium" id="email" name="email" required>
-                </div>
-                <div class="uk-form-row">
-                    <label class="uk-form-label" for="password">使用者密碼</label>
-                    <input type="password" placeholder="Enter Password" class="uk-form-width-medium" id="password" name="password" required>
-                </div>
-                <button class="uk-button" type="submit">登入</button>
-            </fieldset>
-        </form>
+    <div id="content">
+        <div clss="uk-grid">
+            <div class="uk-width-2-5 uk-container-center">
+            <?php
+                if(isset($_COOKIE['userCheck'])==true){
+                    if ($_COOKIE['userCheck'] == 'false') {
+                        echo "<div class='uk-alert uk-alert-warning'>";
+                        echo '<p>您需要登入才可以瀏覽這些頁面！</p>';
+                        echo '</div>';
+                    }
+                }
+            ?>
+            <form class="uk-form uk-form-horizontal" name="form" method="post" action="login_connect.php">
+                <fieldset>
+                    <legend>使用者登入</legend>
+                    <div class="uk-form-row">
+                        <label class="uk-form-label" for="email">電子信箱</label>
+                        <input type="email" placeholder="Enter Email" class="uk-form-width-medium" id="email" name="email" required>
+                    </div>
+                    <div class="uk-form-row">
+                        <label class="uk-form-label" for="password">使用者密碼</label>
+                        <input type="password" placeholder="Enter Password" class="uk-form-width-medium" id="password" name="password" required>
+                    </div>
+                    <button class="uk-button" type="submit">登入</button>
+                </fieldset>
+            </form>
+            </div>
         </div>
     </div>
 
-    <div id="content">
-    </div>
-    <footer id="footer">
+    <!--<footer id="footer">
         <hr>
         <p>&copy; Company 2013</p>
-    </footer>
+    </footer>-->
 
     <!-- Javascript -->
     <script scr="js/uikit.min.js"></script>

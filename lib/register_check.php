@@ -17,18 +17,32 @@ $repeatPassword =$_POST['repeatPassword'];
 if($username != null && $email != null && $password != null && $repeatPassword != null && $password == $repeatPassword){
 
         //新增資料進資料庫語法
-        $sql = "insert into member (username, email, password) values ('$username', '$email', '$password')";
+        $salt = substr($password, 0, 2);
+        $cryptPassword = crypt($password,$salt);
+
+        $sql = "insert into member (username, email, password) values ('$username', '$email', '$cryptPassword')";
         if(mysql_query($sql))
         {
-                //echo '新增成功!';
+                $sql = "SELECT * FROM member";
+                $result = mysql_query($sql);
+                while($row = mysql_fetch_array($result)){
+                    $mid = $row[0];
+                }
                 $_SESSION['email'] = $email;
                 $_SESSION['loginName'] = $username;
-                echo '<meta http-equiv=REFRESH CONTENT=2;url=member.php>';
+                $_SESSION['userID'] = $mid;
+                $url = "customerList.php";
+                echo "<script type='text/javascript'>";
+                echo "window.location.href='$url'";
+                echo "</script>";
         }
         else
         {
                 echo '新增失敗!';
-                echo '<meta http-equiv=REFRESH CONTENT=2;url=../index.html>';
+                $url = "../index.php";
+                echo "<script type='text/javascript'>";
+                echo "window.location.href='$url'";
+                echo "</script>";
         }
 }
 else
@@ -37,7 +51,10 @@ else
         if ($password == $repeatPassword) {
         	echo "驗證密碼失敗，密碼不相同";
         }
-        echo '<meta http-equiv=REFRESH CONTENT=2;url=register.php>';
+                $url = "register.php";
+                echo "<script type='text/javascript'>";
+                echo "window.location.href='$url'";
+                echo "</script>";
 }
 ?>
 

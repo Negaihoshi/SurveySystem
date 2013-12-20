@@ -3,7 +3,6 @@
 ?>
 
 <?php include_once("pageInfo.php"); ?>
-
 <body ng-controller="SearchCtrl">
     <?php include_once("header.php"); ?>
 
@@ -25,19 +24,26 @@
                 <caption>會員資料</caption>
                 <thead>
                     <tr>
-                        <th>id</th>
+                        <th>mid</th>
                         <th>使用者名稱</th>
                         <th>信箱</th>
                         <th>密碼</th>
+                        <th>管理員</th>
                         <th>註冊時間</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr ng-repeat="customer in customers | filter:query | orderBy:orderProp">
-                        <td>{{customer.id}}</td>
-                        <td>{{customer.username}}</td>
+                        <td>{{customer.mid}}</td>
+                        <td>{{customer.username}}</a></td>
                         <td>{{customer.email}}</td>
                         <td>{{customer.password}}</td>
+                        <td>
+                            <form  class="uk-form" action="adminModify.php?mid={{customer.mid}}" method="POST">
+                                <label><input type="checkbox" name='admin' ng-module="customer.admin" ng-checked="customer.admin==1">管理員</label>
+                                <button class="uk-button uk-button-danger uk-button-mini" type="submit">確定</button>
+                            </form>
+                        </td>
                         <td>{{customer.registerDate}}</td>
                     </tr>
                 </tbody>
