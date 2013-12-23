@@ -2,8 +2,6 @@
     session_start();
 ?>
 
-
-
 <?php include_once("pageInfo.php"); ?>
 <body ng-controller="SearchCtrl">
     <?php include_once("header.php"); ?>
