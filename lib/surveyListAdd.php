@@ -25,7 +25,7 @@
         //因此要給予排除
 
 echo "<table class='uk-table'><caption>會員資料</caption><thead>";
-echo "<tr><th>ID</th><th>UserName</th><th>Email</th><th>Password</th><th>Admin</th><th>RegisterDate</th></tr></thead><tbody>";
+echo "<tr><th>ID</th><th>UserName</th><th>Email</th><th>Password</th><th>RegisterDate</th></tr></thead><tbody>";
         if($_SESSION['email'] != null)
         {
                 //將資料庫裡的所有會員資料顯示在畫面上
@@ -33,7 +33,7 @@ echo "<tr><th>ID</th><th>UserName</th><th>Email</th><th>Password</th><th>Admin</
                 $result = mysql_query($sql);
                 while( $row = mysql_fetch_row($result))
                 {
-                   echo "<tr><td>$row[0]</td><td>$row[1]</td><td>$row[2]</td><td>$row[3]</td><td>Admin</td><td>$row[4]</td></tr>";
+                   echo "<tr><td>$row[0]</td><td>$row[1]</td><td>$row[2]</td><td>$row[3]</td><td>$row[4]</td></tr>";
                 }
         }
         else

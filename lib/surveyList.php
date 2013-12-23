@@ -28,7 +28,6 @@
                         <th>使用者名稱</th>
                         <th>信箱</th>
                         <th>密碼</th>
-                        <th>管理員</th>
                         <th>註冊時間</th>
                     </tr>
                 </thead>
@@ -38,12 +37,6 @@
                         <td>{{customer.username}}</a></td>
                         <td>{{customer.email}}</td>
                         <td>{{customer.password}}</td>
-                        <td>
-                            <form  class="uk-form" action="adminModify.php?mid={{customer.mid}}" method="POST">
-                                <label><input type="checkbox" name='admin' ng-module="customer.admin" ng-checked="customer.admin==1">管理員</label>
-                                <button class="uk-button uk-button-danger uk-button-mini" type="submit">確定</button>
-                            </form>
-                        </td>
                         <td>{{customer.registerDate}}</td>
                     </tr>
                 </tbody>
