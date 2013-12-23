@@ -3,8 +3,11 @@
 ?>
 <?
     if($_SESSION['email'] == null){
-        echo "您無權限瀏覽此頁面";
-        echo "<meta http-equiv=REFRESH CONTENT=2;url=../index.php>";
+        echo '您無權限觀看此頁面!';
+        $url = "../index.php";
+        echo "<script type='text/javascript'>";
+        echo "window.location.href='$url'";
+        echo "</script>";
     }
 ?>
 <?php include_once("pageInfo.php"); ?>
@@ -30,7 +33,7 @@ echo "<tr><th>ID</th><th>UserName</th><th>Email</th><th>Password</th><th>Admin</
                 $result = mysql_query($sql);
                 while( $row = mysql_fetch_row($result))
                 {
-                   echo "<tr><td>$row[0]</td><td>$row[1]</td><td>$row[2]</td><td>$row[3]</td><td>$row[4]</td><td>$row[5]</td></tr>";
+                   echo "<tr><td>$row[0]</td><td>$row[1]</td><td>$row[2]</td><td>$row[3]</td><td>Admin</td><td>$row[4]</td></tr>";
                 }
         }
         else
