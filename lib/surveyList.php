@@ -2,8 +2,7 @@
     session_start();
 ?>
 
-<!doctype html>
-<html lang="zh-tw" ng-app="CustomerList">
+
 
 <?php include_once("pageInfo.php"); ?>
 <body ng-controller="SearchCtrl">
