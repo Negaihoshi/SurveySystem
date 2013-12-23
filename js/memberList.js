@@ -1,7 +1,6 @@
 'use strict';
 
 /* Controllers */
-
 var CustomerList = angular.module('CustomerList', []);
 
 CustomerList.controller('SearchCtrl', function($scope, $http) {
@@ -12,3 +11,4 @@ CustomerList.controller('SearchCtrl', function($scope, $http) {
   $scope.orderProp = 'RegisterDate';
 
 });
+

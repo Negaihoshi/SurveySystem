@@ -1,4 +1,4 @@
-<?php include_once("lib/pageInfo.php"); ?>
+<?php include_once("indexInfo.php"); ?>
 
 <body>
 

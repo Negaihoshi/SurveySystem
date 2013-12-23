@@ -2,6 +2,9 @@
     session_start();
 ?>
 
+<!doctype html>
+<html lang="zh-tw" ng-app="CustomerList">
+
 <?php include_once("pageInfo.php"); ?>
 <body ng-controller="SearchCtrl">
     <?php include_once("header.php"); ?>
@@ -20,28 +23,29 @@
                 </div>
             </fieldset>
         </form>
-            <table class="uk-table uk-table-striped">
-                <caption>會員資料</caption>
-                <thead>
-                    <tr>
-                        <th>mid</th>
-                        <th>使用者名稱</th>
-                        <th>信箱</th>
-                        <th>密碼</th>
-                        <th>註冊時間</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr ng-repeat="customer in customers | filter:query | orderBy:orderProp">
-                        <td>{{customer.mid}}</td>
-                        <td>{{customer.username}}</a></td>
-                        <td>{{customer.email}}</td>
-                        <td>{{customer.password}}</td>
-                        <td>{{customer.registerDate}}</td>
-                    </tr>
-                </tbody>
-            </table>
+        <table class="uk-table uk-table-striped">
+            <caption>客戶資料</caption>
+            <thead>
+                <tr>
+                    <th>id</th>
+                    <th>username</th>
+                    <th>email</th>
+                    <th>password</th>
+                    <th>registerDate</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="customer in customers | filter:query | orderBy:orderProp">
+                    <td>{{customer.id}}</td>
+                    <td>{{customer.username}}</td>
+                    <td>{{customer.email}}</td>
+                    <td>{{customer.password}}</td>
+                    <td>{{customer.registerDate}}</td>
+                </tr>
+            </tbody>
+        </table>
     </div>
+
 </body>
 
 </html>
