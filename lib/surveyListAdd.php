@@ -16,38 +16,61 @@
 
 
 
-    <div id="content">
-        <?php
-        include("connect_db.php");
-
-        //此判斷為判定觀看此頁有沒有權限
-        //說不定是路人或不相關的使用者
-        //因此要給予排除
-
-echo "<table class='uk-table'><caption>會員資料</caption><thead>";
-echo "<tr><th>ID</th><th>UserName</th><th>Email</th><th>Password</th><th>RegisterDate</th></tr></thead><tbody>";
-        if($_SESSION['email'] != null)
-        {
-                //將資料庫裡的所有會員資料顯示在畫面上
-                $sql = "SELECT * FROM member";
-                $result = mysql_query($sql);
-                while( $row = mysql_fetch_row($result))
-                {
-                   echo "<tr><td>$row[0]</td><td>$row[1]</td><td>$row[2]</td><td>$row[3]</td><td>$row[4]</td></tr>";
+    <script>
+        $(document).ready(function(){
+            $("#add_button").click
+            (
+                function(){
+                    $("#add_file_button").append('<input type="file" name="f[]">&nbsp;檔案名稱：<input type="text" name="file_show_name[]" value="" size="32" maxlength="64"><br>');
                 }
-        }
-        else
-        {
-                echo '您無權限觀看此頁面!';
-                $url = "../index.php";
-                echo "<script type='text/javascript'>";
-                echo "window.location.href='$url'";
-                echo "</script>";
-        }
-        echo "</tbody></table>";
-        ?>
+            );
+            $("a[id='del_file[]']").click(function(){
+                if (confirm('確定刪除檔案')) {
+                    return true;
+                }
+                return false;
+            });
+        });
 
+        function RemoveCustomer(){
+
+            TableLength = document.getElementById('customerTable').rows.length;
+            if (TableLength > 2) {
+                document.getElementById("customerTable").deleteRow(-1);
+            };
+        }
+    </script>
+    <div class="ui text menu">
+        <div class="ui buttons">
+            <a class="ui blue button" onclick="">下一題</a>
+            <a class="ui purple button" onclick="">單行文字</a>
+            <a class="ui teal button" onclick="">多行文字</a>
+            <a class="ui orange button" onclick="">單選按鈕</a>
+            <a class="ui black button" onclick="">核取方塊</a>
+            <a class="ui green button" onclick="">下拉式選單</a>
+            <a class="ui red button" onclick="">以數字表示程度</a>
+        </div>
     </div>
+    <div id="content" >
+        <div class="ui grid">
+            <div class="three wide column"></div>
+            <div class="ten wide column" id="questions">
+                <div class="ui segment">
+                    <div class="ui form">
+                        <label>問卷標題</label>
+                        <input type="text">
+                    </div>
+                    <div class="ui form">
+                        <div class="field">
+                            <label>說明</label>
+                            <textarea></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!--
     <div class="tm-footer">
         <div class="uk-container uk-container-center uk-text-center">

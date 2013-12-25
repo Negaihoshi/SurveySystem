@@ -16,6 +16,10 @@
     <script src="../js/uikit.min.js"></script>
     <link href="../css/uikit.gradient.min.css" rel="stylesheet">
     <link href="../css/style.css" rel="stylesheet">
+    <link href="../css/semantic/input.min.css" rel="stylesheet">
+    <link href="../css/semantic/semantic.min.css" rel="stylesheet">
+    <script src="../js/semantic.min.js"></script>
 
+    <script src="../js/semantic.js"></script>
     <script src="../js/memberList.js"></script>
 </head>

@@ -37,11 +37,11 @@
                 <div class="uk-form-row">
                     <p>1.</p>
                     <div class="ui slider checkbox">
-                      <input name="q1_1" type="checkbox">
+                      <input name="q1_1" type="checkbox" onclick="chooseOne(this);">
                       <label>Allow others to see when your dog is on a walk</label>
                     </div><br>
                     <div class="ui slider checkbox">
-                      <input name="q1_2" type="checkbox">
+                      <input name="q1_2" type="checkbox" onclick="chooseOne(this);">
                       <label>Allow others to see when your dog is on a walk</label>
                     </div>
                 </div>
@@ -114,6 +114,14 @@
             </fieldset>
         </form>
     </div>
+<script>
+    function chooseOne(this) {
+    $(this)
+      .nextAll('.checkbox')
+        .checkbox('toggle')
+    ;
+  }
+</script>
 
 </body>
 
