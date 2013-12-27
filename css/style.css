@@ -1,3 +1,13 @@
 #content {
     margin: 2em;
 }
+#choose {
+	text-align: center;
+}
+.fixed {
+    position:fixed;
+    top:20px;
+}
+#asideBar{
+	
+}
