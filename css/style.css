@@ -1,5 +1,6 @@
 #content {
-    margin: 2em;
+    margin: 0;
+    padding: 0;
 }
 #choose {
 	text-align: center;
@@ -9,5 +10,10 @@
     top:20px;
 }
 #asideBar{
-	
+	margin: 0px;
+	padding: 0px;
+}
+#asideBarDiv{
+	margin: 0px;
+	padding: 0px;
 }
