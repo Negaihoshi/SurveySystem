@@ -50,6 +50,7 @@
                     <div class="ui form">
                         <div class="field">
                             <label>答題方式</label>
+                            <div id="add_column"></div>
                         </div>
                     </div>
                     <div class="ui text menu" id="choose">
