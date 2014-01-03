@@ -12,12 +12,17 @@
 ?>
 <?php include_once("pageInfo.php"); ?>
 <body>
-    <?php include_once("header.php"); ?>
     <script>
         $(document).ready(function(){
+            $('#content').click(function(){
+                var divClone = $('#origin').clone();
+                $('#content').append(divClone);
+            });
 
         });
     </script>
+    <?php include_once("header.php"); ?>
+
     <div id="content" >
         <div class="ui grid">
             <div class="three wide column">
@@ -39,7 +44,7 @@
                 </div>
             </div>
         </div>
-        <div class="ui grid">
+        <div class="ui grid" id="origin">
             <div class="three wide column"></div>
             <div class="ten wide column" id="questions">
                 <div class="ui segment">
@@ -55,7 +60,7 @@
                     </div>
                     <div class="ui text menu" id="choose">
                         <div class="ui buttons">
-                            <a class="ui blue button" onclick="dynamicForm.createDialog();">下一題</a>
+                            <a class="ui blue button">下一題</a>
                             <a class="ui purple button" onclick="">單行文字</a>
                             <a class="ui teal button" onclick="">多行文字</a>
                             <a class="ui orange button" onclick="">單選按鈕</a>
@@ -67,54 +72,7 @@
                 </div>
             </div>
         </div>
-        <div class="ui grid">
-            <div class="three wide column"></div>
-            <div class="ten wide column" id="questions">
-                <div class="ui segment">
-                    <div class="ui form">
-                        <label>第 1 題</label>
-                        <input type="text" placeholder="問卷說明">
-                    </div>
-                    <div class="ui form">
-                        <div class="field">
-                            <label>答題方式</label>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="ui grid">
-            <div class="three wide column"></div>
-            <div class="ten wide column" id="questions">
-                <div class="ui segment">
-                    <div class="ui form">
-                        <label>第 1 題</label>
-                        <input type="text" placeholder="問卷說明">
-                    </div>
-                    <div class="ui form">
-                        <div class="field">
-                            <label>答題方式</label>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="ui grid">
-            <div class="three wide column"></div>
-            <div class="ten wide column" id="questions">
-                <div class="ui segment">
-                    <div class="ui form">
-                        <label>第 1 題</label>
-                        <input type="text" placeholder="問卷說明">
-                    </div>
-                    <div class="ui form">
-                        <div class="field">
-                            <label>答題方式</label>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+
     </div>
 
     <!--
