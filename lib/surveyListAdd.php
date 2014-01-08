@@ -12,11 +12,42 @@
 ?>
 <?php include_once("pageInfo.php"); ?>
 <body>
+    <script id="formTemplate" type="text/x-jquery-tmpl">
+        <div class="three wide column"></div>
+        <div class="ten wide column" id="questions">
+            <div class="ui segment">
+                <form class="ui form">
+                    <label>第 ${qestCount} 題</label>
+                    <input type="text" placeholder="問卷說明">
+                </form>
+                <div class="ui form">
+                    <div class="field">
+                        <label>答題方式</label>
+                    <div id="add_column"></div>
+                </div>
+                </div>
+                <div class="ui text menu" id="choose">
+                    <div class="ui buttons">
+                        <a class="ui blue button" id="nextQuest">下一題</a>
+                        <a class="ui purple button" onclick="">單行文字</a>
+                        <a class="ui teal button" onclick="">多行文字</a>
+                        <a class="ui orange button" onclick="">單選按鈕</a>
+                        <a class="ui black button" onclick="">核取方塊</a>
+                        <a class="ui green button" onclick="">下拉式選單</a>
+                        <a class="ui red button" onclick="">以數字表示程度</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="three wide column"></div>
+    </script>
     <script>
         $(document).ready(function(){
-            $('#content').click(function(){
-                var divClone = $('#origin').clone();
-                $('#content').append(divClone);
+            var qestCount = 1;
+            $('#nextQuest').click(function(){
+
+                $("#formTemplate").tmpl(qestCount).appendTo("#origin");
+                qestCount++;
             });
 
         });
@@ -60,7 +91,7 @@
                     </div>
                     <div class="ui text menu" id="choose">
                         <div class="ui buttons">
-                            <a class="ui blue button">下一題</a>
+                            <a class="ui blue button" id="nextQuest">下一題</a>
                             <a class="ui purple button" onclick="">單行文字</a>
                             <a class="ui teal button" onclick="">多行文字</a>
                             <a class="ui orange button" onclick="">單選按鈕</a>
@@ -71,6 +102,7 @@
                     </div>
                 </div>
             </div>
+            <div class="three wide column"></div>
         </div>
 
     </div>
