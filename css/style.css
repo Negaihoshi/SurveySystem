@@ -2,18 +2,12 @@
     margin: 0;
     padding: 0;
 }
-#choose {
-	text-align: center;
-}
+
 .fixed {
     position:fixed;
-    top:20px;
+    top:0px;
 }
-#asideBar{
-	margin: 0px;
-	padding: 0px;
-}
-#asideBarDiv{
-	margin: 0px;
-	padding: 0px;
+#choose {
+	margin: 0;
+	padding: 0;
 }

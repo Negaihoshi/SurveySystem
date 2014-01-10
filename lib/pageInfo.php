@@ -25,5 +25,4 @@
 
     <script src="../js/semantic.js"></script>
     <script src="../js/memberList.js"></script>
-    <script src="../js/dynamic-form.js"></script>
 </head>
