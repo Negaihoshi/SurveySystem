@@ -12,24 +12,6 @@
 ?>
 <?php include_once("pageInfo.php"); ?>
 <body>
-    <script id="formTemplate" type="text/x-jquery-tmpl">
-        <div class="three wide column"></div>
-        <div class="ten wide column" id="questions">
-            <div class="ui segment">
-                <form class="ui form">
-                    <label>第 ${qestCount} 題</label>
-                    <textarea placeholder="題目說明"></textarea>
-                </form>
-                <div class="ui form">
-                    <div class="field">
-                        <label>答題方式</label>
-                    <div id="add_column"></div>
-                </div>
-                </div>
-            </div>
-        </div>
-        <div class="three wide column"></div>
-    </script>
     <script>
         $(document).ready(function(){
 
@@ -39,10 +21,10 @@
 
                 if(offset.top < scrollTop) {
 
-                $("#choose").addClass("fixed")
+                $("#choose").addClass("fixed");
                 }else {
 
-                $("#choose").removeClass("fixed")
+                $("#choose").removeClass("fixed");
                 }
             });
 
@@ -57,29 +39,46 @@
                 });
             });
 
-            var qestCountValue = 1
-            var data ={
-                qestCount : qestCountValue
-            } ;
-            $('#nextQuest').click(function(){
-                qestCountValue = qestCountValue + 1;
-                $("#formTemplate").tmpl(data).appendTo("#origin");
+            var qestCount = 1;
+            var origin = document.getElementById('origin');
+            $('#nextText').click(function(){
+                qestCount++;
+                origin.innerHTML += '<div class="three wide column"></div><div class="ten wide column" id="questions"><div class="ui segment"><form class="ui form"><label>第 ' + qestCount +' 題</label><textarea placeholder="題目說明"></textarea></form><div class="ui form"><div class="field"><label>答題方式</label><div id="add_column"></div></div></div></div></div><div class="three wide column"></div></div>';
+            });
+            $('#nextTextArea').click(function(){
+
+            });
+            $('#nextRadioBtn').click(function(){
+
+            });
+            $('#nextCheck').click(function(){
+
+            });
+            $('#nextDropList').click(function(){
+
+            });
+            $('#nextNumberLevel').click(function(){
+
+            });
+            $('#nextDatePicker').click(function(){
+
             });
         });
     </script>
     <?php include_once("header.php"); ?>
     <div class="ui purple inverted menu" id="choose">
 
-        <a class="item" id="nextQuest">單行文字</a>
-        <a class="item" onclick="">多行文字</a>
-        <a class="item" onclick="">單選按鈕</a>
-        <a class="item" onclick="">核取方塊</a>
-        <a class="item" onclick="">下拉式選單</a>
-        <a class="item" onclick="">以數字表示程度</a>
+        <a class="item" id="nextText">單行文字</a>
+        <a class="item" id="nextTextArea">多行文字</a>
+        <a class="item" id="nextRadioBtn">單選按鈕</a>
+        <a class="item" id="nextCheck">核取方塊</a>
+        <a class="item" id="nextDropList">下拉式選單</a>
+        <a class="item" id="nextNumberLevel">以數字表示程度</a>
+        <a class="item" id="nextDatePicker">時間</a>
+        <a class="item" id="nextNewTab">新分頁</a>
         <div class="right menu">
             <a class="item" onclick="" id="gotoheader">回到頂端</a>
         </div>
-
     </div>
     <div id="content" >
         <div class="ui grid">
@@ -112,12 +111,8 @@
                         <label>第 1 題</label>
                         <textarea placeholder="題目說明"></textarea>
                     </form>
-                    <div class="ui form">
-                        <div class="field">
-                            <label>答題方式</label>
-                            <div id="add_column"></div>
-                        </div>
-                    </div>
+
+                    <label>答題方式</label>
                 </div>
             </div>
             <div class="three wide column"></div>
