@@ -10,111 +10,19 @@
         echo "</script>";
     }
 ?>
+<head>
+    <script src="../js/Chart.min.js"></script>
+    <script src="../js/test.js"></script>
+</head>
 <?php include_once("pageInfo.php"); ?>
 <body>
     <?php include_once("header.php"); ?>
-    <script>
-        $(document).ready(function(){
 
-        });
+    <script>        
+        var ctx = document.getElementById("myChart").getContext("2d");
+        var myNewChart = new Chart(ctx).Bar(data);
     </script>
-    <div id="content" >
-        <div class="ui grid">
-            <div class="three wide column">
-            </div>
-            <div class="ten wide column" id="questions">
-                <div class="ui form">
-                    <div class="ui segment">
-                        <div class="ui form">
-                            <label>問卷標題</label>
-                            <input type="text">
-                        </div>
-                        <div class="ui form">
-                            <div class="field">
-                                <label>說明</label>
-                                <textarea></textarea>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="ui grid">
-            <div class="three wide column"></div>
-            <div class="ten wide column" id="questions">
-                <div class="ui segment">
-                    <form class="ui form">
-                        <label>第 1 題</label>
-                        <input type="text" placeholder="問卷說明">
-                    </form>
-                    <div class="ui form">
-                        <div class="field">
-                            <label>答題方式</label>
-                        </div>
-                    </div>
-                    <div class="ui text menu" id="choose">
-                        <div class="ui buttons">
-                            <a class="ui blue button" onclick="dynamicForm.createDialog();">下一題</a>
-                            <a class="ui purple button" onclick="">單行文字</a>
-                            <a class="ui teal button" onclick="">多行文字</a>
-                            <a class="ui orange button" onclick="">單選按鈕</a>
-                            <a class="ui black button" onclick="">核取方塊</a>
-                            <a class="ui green button" onclick="">下拉式選單</a>
-                            <a class="ui red button" onclick="">以數字表示程度</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="ui grid">
-            <div class="three wide column"></div>
-            <div class="ten wide column" id="questions">
-                <div class="ui segment">
-                    <div class="ui form">
-                        <label>第 1 題</label>
-                        <input type="text" placeholder="問卷說明">
-                    </div>
-                    <div class="ui form">
-                        <div class="field">
-                            <label>答題方式</label>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="ui grid">
-            <div class="three wide column"></div>
-            <div class="ten wide column" id="questions">
-                <div class="ui segment">
-                    <div class="ui form">
-                        <label>第 1 題</label>
-                        <input type="text" placeholder="問卷說明">
-                    </div>
-                    <div class="ui form">
-                        <div class="field">
-                            <label>答題方式</label>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="ui grid">
-            <div class="three wide column"></div>
-            <div class="ten wide column" id="questions">
-                <div class="ui segment">
-                    <div class="ui form">
-                        <label>第 1 題</label>
-                        <input type="text" placeholder="問卷說明">
-                    </div>
-                    <div class="ui form">
-                        <div class="field">
-                            <label>答題方式</label>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    <canvas id="myChart" width="400" height="400"></canvas>
 
     <!--
     <div class="tm-footer">
