@@ -19,8 +19,10 @@
     <?php include_once("header.php"); ?>
 
     <script>        
+    $(document).ready(function(){
         var ctx = document.getElementById("myChart").getContext("2d");
         var myNewChart = new Chart(ctx).Bar(data);
+    });
     </script>
     <canvas id="myChart" width="400" height="400"></canvas>
 

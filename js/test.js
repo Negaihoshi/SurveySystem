@@ -1,5 +1,5 @@
 //Get the context of the canvas element we want to select
-
+$(document).ready(function(){
         var data = {
             labels : ["January","February","March","April","May","June","July"],
             datasets : [
@@ -89,3 +89,4 @@
             onAnimationComplete : null
             
         }*/
+});
