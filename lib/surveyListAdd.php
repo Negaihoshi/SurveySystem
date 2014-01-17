@@ -12,59 +12,7 @@
 ?>
 <?php include_once("pageInfo.php"); ?>
 <body>
-    <script>
-        $(document).ready(function(){
-
-             var offset = $("#choose").offset();    <!--固定選單-->
-            $(window).scroll(function() {
-                var scrollTop = $(window).scrollTop();
-
-                if(offset.top < scrollTop) {
-
-                $("#choose").addClass("fixed");
-                }else {
-
-                $("#choose").removeClass("fixed");
-                }
-            });
-
-            $(function(){   <!--回到最上層-->
-                $('#gotoheader').click(function(){
-                    var $body = (window.opera) ? (document.compatMode == "CSS1Compat" ? $('html') : $('body')) : $('html,body');
-                    $body.animate({
-                        scrollTop: $('#header').offset().top
-                    }, 300);
-
-                    return false;
-                });
-            });
-
-            var qestCount = 1;
-            var origin = document.getElementById('origin');
-            $('#nextText').click(function(){
-                qestCount++;
-                origin.innerHTML += '<div class="three wide column"></div><div class="ten wide column" id="questions"><div class="ui segment"><form class="ui form"><label>第 ' + qestCount +' 題</label><textarea placeholder="題目說明"></textarea></form><div class="ui form"><div class="field"><label>答題方式</label><div id="add_column"></div></div></div></div></div><div class="three wide column"></div></div>';
-            });
-            $('#nextTextArea').click(function(){
-
-            });
-            $('#nextRadioBtn').click(function(){
-
-            });
-            $('#nextCheck').click(function(){
-
-            });
-            $('#nextDropList').click(function(){
-
-            });
-            $('#nextNumberLevel').click(function(){
-
-            });
-            $('#nextDatePicker').click(function(){
-
-            });
-        });
-    </script>
+    <script src="../js/form.js"></script>
     <?php include_once("header.php"); ?>
     <div class="ui purple inverted menu" id="choose">
 
@@ -77,48 +25,59 @@
         <a class="item" id="nextDatePicker">時間</a>
         <a class="item" id="nextNewTab">新分頁</a>
         <div class="right menu">
+            <a class="item" onclick="" id="upload">送出</a>
             <a class="item" onclick="" id="gotoheader">回到頂端</a>
         </div>
     </div>
-    <div id="content" >
-        <div class="ui grid">
-            <div class="three wide column">
-            </div>
-            <div class="ten wide column" id="questions">
+<div class="ui two column relaxed grid">
+    <div class="column" id="origin">
+        <div class="ui segment">
+            <form class="ui form">
                 <div class="ui form">
-                    <div class="ui segment">
-                        <div class="ui form">
-                            <label>問卷標題</label>
-                            <input type="text">
-                        </div>
-                        <div class="ui form">
-                            <div class="field">
-                                <label>說明</label>
-                                <textarea placeholder="問卷說明"></textarea>
-                            </div>
-                        </div>
+                    <label>問卷標題</label>
+                    <input type="text" ng-model="text0" name="surveyTitle" autofocus>
+                </div>
+                <div class="ui form">
+                    <div class="field">
+                        <label>說明</label>
+                        <textarea placeholder="問卷說明" ng-model="textarea0" name="surveyDetail"></textarea>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="ui segment">
+            <form class="ui form">
+                <label>第 1 題</label>
+                <textarea placeholder="題目說明" ng-model="textarea1" name="qestion"></textarea>
+            </form>
+            <div class="ui blue inverted segment">
+                <label>答題方式</label>
+                <p>單選</p>
+            </div>
+        </div>
+    </div>
+    <div class="column" >
+        <div class="ui segment" id="origin2">
+            <div class="count1">
+                <div class="ui orange inverted segment">
+                    <h1>{{text0}}</h1>
+                    <label>說明</label>
+                    <p>{{textarea0}}</p>
+                </div>
+                <div class="ui teal inverted segment">
+                    <label>第 1 題</label><br>
+                    <label>題目說明</label>
+                    <p>{{textarea1}}</p>
+                    <div class="ui form">
+                        <label>作答</label>
+                        <input type="text" name="" id="">
                     </div>
                 </div>
             </div>
-            <div class="three wide column">
-            </div>
         </div>
-        <div class="ui grid" id="origin">
-            <div class="three wide column"></div>
-            <div class="ten wide column" id="questions">
-                <div class="ui segment">
-                    <form class="ui form">
-                        <label>第 1 題</label>
-                        <textarea placeholder="題目說明"></textarea>
-                    </form>
-
-                    <label>答題方式</label>
-                </div>
-            </div>
-            <div class="three wide column"></div>
-        </div>
-
     </div>
+</div>
+    <script>
+    </script>
 </body>
-
 </html>
