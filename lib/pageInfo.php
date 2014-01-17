@@ -19,7 +19,6 @@
     <link href="../css/semantic/semantic.min.css" rel="stylesheet">
     <link href="../css/tabulous.css" rel="stylesheet" >
     <script src="../js/tabulous.min.js"></script>
-    <script src="http://ajax.microsoft.com/ajax/jquery.templates/beta1/jquery.tmpl.min.js"></script>
     <script src="../js/semantic.min.js"></script>
 
     <script src="../js/memberList.js"></script>
