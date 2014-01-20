@@ -35,12 +35,12 @@
             <form class="ui form">
                 <div class="ui form">
                     <label>問卷標題</label>
-                    <input type="text" ng-model="text0" name="surveyTitle" autofocus>
+                    <input type="text" name="surveyTitle" id="title" autofocus>
                 </div>
                 <div class="ui form">
                     <div class="field">
                         <label>說明</label>
-                        <textarea placeholder="問卷說明" ng-model="textarea0" name="surveyDetail"></textarea>
+                        <textarea placeholder="問卷說明" id="titleTextarea" name="surveyDetail" style="overflow:hidden"></textarea>
                     </div>
                 </div>
             </form>
@@ -48,7 +48,7 @@
         <div class="ui segment">
             <form class="ui form">
                 <label>第 1 題</label>
-                <textarea placeholder="題目說明" ng-model="textarea1" name="qestion"></textarea>
+                <textarea placeholder="題目說明" name="qestion" style="overflow:hidden"></textarea>
             </form>
             <div class="ui blue inverted segment">
                 <label>答題方式</label>
@@ -60,9 +60,9 @@
         <div class="ui segment" id="origin2">
             <div class="count1">
                 <div class="ui orange inverted segment">
-                    <h1>{{text0}}</h1>
+                    <h1 id='displayTitle'></h1>
                     <label>說明</label>
-                    <p>{{textarea0}}</p>
+                    <p id="displayTexArea"></p>
                 </div>
                 <div class="ui teal inverted segment">
                     <label>第 1 題</label><br>
@@ -70,7 +70,7 @@
                     <p>{{textarea1}}</p>
                     <div class="ui form">
                         <label>作答</label>
-                        <input type="text" name="" id="">
+                        <input type="text" name="" id="" disabled>
                     </div>
                 </div>
             </div>

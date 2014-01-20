@@ -11,9 +11,9 @@
     }
 ?>
 <head>
-    <script src="../js/xcharts.js"></script>
-    <link href="../css/xcharts.css" rel="stylesheet">
-    <script src="../js/d3.v3.js"></script>
+    <script src="../js/xcharts.min.js"></script>
+    <link href="../css/xcharts.min.css" rel="stylesheet">
+    <script src="../js/d3.v3.min.js"></script>
 </head>
 <?php include_once("pageInfo.php"); ?>
 <body>
