@@ -11,37 +11,102 @@
     }
 ?>
 <head>
-    <script src="../js/Chart.min.js"></script>
-    <script src="../js/test.js"></script>
+    <script src="../js/xcharts.js"></script>
+    <link href="../css/xcharts.css" rel="stylesheet">
+    <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
 </head>
 <?php include_once("pageInfo.php"); ?>
 <body>
     <?php include_once("header.php"); ?>
-
+    <button id="button_click1">Bar Chart</button>
+    <button id="button_click2">Linear Chart</button>
+    <figure style="width: 400px; height: 300px;" id="myChart"></figure>
     <script> 
-    $(document).ready(function(){
-        
-                 var barChartData = {   
-                labels : ["January","February","March","April","May","June","July"],   
-                datasets : [   
-                    {   
-                        fillColor : "rgba(220,220,220,0.5)",   
-                        strokeColor : "rgba(220,220,220,1)",   
-                        data : [65,59,90,81,56,55,40]   
-                    },   
-                    {   
-                        fillColor : "rgba(151,187,205,0.5)",   
-                        strokeColor : "rgba(151,187,205,1)",   
-                        data : [28,48,40,19,96,27,100]   
-                    }   
-                ]   
-                   
-            }   
-      
-        var myLine = new Chart(document.getElementById("canvas").getContext("2d")).Bar(barChartData);  
+    $(document).ready(function()
+    {
+        $("#button_click1").click(function() {
+            $(document).ready(function(){
+                $("#myChart").html("");
+                var data = {
+                  "xScale": "ordinal",
+                  "yScale": "linear",
+                  "main": [
+                    {
+                      "className": ".pizza",
+                      "data": [
+                        {
+                          "x": "Pepperoni",
+                          "y": 4
+                        },
+                        {
+                          "x": "Cheese",
+                          "y": 8
+                        }
+                      ]
+                    }
+                  ]
+                };
+                var myChart = new xChart('bar', data, '#myChart');
+
+            });
+        });
+        $("#button_click2").click(function() {
+              $(document).ready(function(){
+                $("#myChart").html("");
+                  var data = {
+                      "xScale": "time",
+                      "yScale": "linear",
+                      "type": "line",
+                      "main": [
+                        {
+                          "className": ".pizza",
+                          "data": [
+                            {
+                              "x": "2012-11-05",
+                              "y": 0
+                            },
+                            {
+                              "x": "2012-11-06",
+                              "y": 0
+                            },
+                            {
+                              "x": "2012-11-07",
+                              "y": 0
+                            },
+                            {
+                              "x": "2012-11-08",
+                              "y": 0
+                            },
+                            {
+                              "x": "2012-11-09",
+                              "y": 0
+                            },
+                            {
+                              "x": "2012-11-10",
+                              "y": 0
+                            },
+                            {
+                              "x": "2012-11-11",
+                              "y": 10
+                            }
+                          ]
+                        }
+                      ]
+                };
+                var opts = {
+                  "dataFormatX": function (x) { return d3.time.format('%Y-%m-%d').parse(x); },
+                  "tickFormatX": function (x) { return d3.time.format('%A')(x); }
+                };
+                var myChart = new xChart('line', data, '#myChart', opts);
+
+                });
+        });
+
+
+
+  
     });
     </script>
-    <canvas id="myChart" width="400" height="400"></canvas>
 
     <!--
     <div class="tm-footer">
