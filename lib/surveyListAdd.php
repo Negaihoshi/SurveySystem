@@ -29,8 +29,9 @@
             <a class="item" onclick="" id="gotoheader">回到頂端</a>
         </div>
     </div>
+<div id="origin">
 <div class="ui two column relaxed grid">
-    <div class="column" id="origin">
+    <div class="column">
         <div class="ui segment">
             <form class="ui form">
                 <div class="ui form">
@@ -45,38 +46,21 @@
                 </div>
             </form>
         </div>
-        <div class="ui segment">
-            <form class="ui form">
-                <label>第 1 題</label>
-                <textarea placeholder="題目說明" name="qestion" style="overflow:hidden"></textarea>
-            </form>
-            <div class="ui blue inverted segment">
-                <label>答題方式</label>
-                <p>單選</p>
-            </div>
-        </div>
     </div>
     <div class="column" >
         <div class="ui segment" id="origin2">
             <div class="count1">
                 <div class="ui orange inverted segment">
-                    <h1 id='displayTitle'></h1>
+                    <h2 id="displayTitle" class="ui center aligned  orange inverted segment"></h2>
                     <label>說明</label>
                     <p id="displayTexArea"></p>
-                </div>
-                <div class="ui teal inverted segment">
-                    <label>第 1 題</label><br>
-                    <label>題目說明</label>
-                    <p>{{textarea1}}</p>
-                    <div class="ui form">
-                        <label>作答</label>
-                        <input type="text" name="" id="" disabled>
-                    </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
+</div>
+
     <script>
     </script>
 </body>
