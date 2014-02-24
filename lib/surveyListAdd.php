@@ -15,7 +15,7 @@
     <script src="../js/form.js"></script>
     <?php include_once("header.php"); ?>
     <div class="ui purple inverted menu" id="choose">
-
+    <div class="ui twelve page grid">
         <a class="item" id="nextText">單行文字</a>
         <a class="item" id="nextTextArea">多行文字</a>
         <a class="item" id="nextRadioBtn">單選按鈕</a>
@@ -29,10 +29,10 @@
             <a class="item" onclick="" id="gotoheader">回到頂端</a>
         </div>
     </div>
-<div id="origin">
-<div class="ui two column relaxed grid">
-    <div class="column">
-        <div class="ui segment">
+    </div>
+    <div id="origin">
+    <div class="ui twelve page grid">
+        <div class="sixteen wide column">
             <form class="ui form">
                 <div class="ui form">
                     <label>問卷標題</label>
@@ -47,20 +47,7 @@
             </form>
         </div>
     </div>
-    <div class="column" >
-        <div class="ui segment" id="origin2">
-            <div class="count1">
-                <div class="ui orange inverted segment">
-                    <h2 id="displayTitle" class="ui center aligned  orange inverted segment"></h2>
-                    <label>說明</label>
-                    <p id="displayTexArea"></p>
-                </div>
-            </div>
-        </div>
     </div>
-</div>
-</div>
-
     <script>
     </script>
 </body>
